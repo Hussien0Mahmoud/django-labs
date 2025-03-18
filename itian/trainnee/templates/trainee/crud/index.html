@@ -1,0 +1,44 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}Trainee Home{% endblock title %}
+
+{% block content %}
+<div class="card shadow-lg p-4 rounded my-4">
+    <div class="card-body">
+        <h1 class="text-center text-secondary mb-4">Welcome to Trainee Home</h1>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Course</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for train in trainees %}
+                    <tr>
+                        <td><strong>{{ train.id }}</strong></td>
+                        <td>{{ train.name }}</td>
+                        <td>{{ train.course }}</td>
+                        <td>{{ train.email }}</td>
+                        <td>
+                            <a href="{{ train.delete_url }}" class="btn btn-danger btn-sm">Delete</a>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block Adding-Button %}
+
+<button type="button" class="btn btn-secondary d-block mx-auto mt-3"  >
+    <a href="{% url 'trainee_createTrainee' %}" class="text-decoration-none">Adding Trainee</a>
+</button>
+    
+{% endblock  %}

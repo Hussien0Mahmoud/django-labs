@@ -1,0 +1,41 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}Course Form{% endblock title %}
+
+{% block content %}
+<div class="row justify-content-center my-4">
+    <div class="col-md-6">
+        <div class="card shadow-lg p-4 rounded">
+            <div class="card-body">
+                <h2 class="text-center text-secondary mb-4">Add a New Course</h2>
+
+                <form method="POST">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label for="name" class="form-label fw-bold">Course Name</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter course name">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label fw-bold">Description</label>
+                        <textarea id="course_description" name="description" class="form-control" rows="3" placeholder="Enter course description"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="duration" class="form-label fw-bold">Duration (weeks)</label>
+                        <input type="number" id="course_duration" name="duration" class="form-control" placeholder="Enter duration in weeks">
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-secondary">Add Course</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
+
+

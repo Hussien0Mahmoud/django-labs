@@ -1,0 +1,39 @@
+{% extends 'layout/base.html' %}
+
+{% block title %} Login {% endblock title %}
+
+{% block content %}
+
+<div class="row justify-content-center my-4">
+    <div class="col-md-5">
+        <div class="card shadow-lg p-4 rounded">
+            <div class="card-body">
+                <h2 class="text-center text-secondary mb-4">Login</h2>
+
+                <form method="POST">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label for="username" class="form-label fw-bold">Username</label>
+                        <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label fw-bold">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-secondary">Login</button>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <small>Don't have an account? <a href="{% url 'register' %}" class="text-secondary">Sign up</a></small>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
