@@ -9,10 +9,18 @@
             <div class="card-body">
                 <h2 class="text-center text-secondary mb-4">Add a New Trainee</h2>
 
-                <form method="POST">
+                <form method="POST"  enctype="multipart/form-data"> 
                     {% csrf_token %}
+                    {% for field in form %}
+                        <div class="mb-3">
+                            <label for="{{ field.id_for_label }}" class="form-label fw-bold">{{ field.label }}</label>
+                            {{ field }}
+                        </div>
+                    {% endfor %}
+
                     
-                    <div class="mb-3">
+                    
+                    {% comment %} <div class="mb-3">
                         <label for="name" class="form-label fw-bold">Full Name</label>
                         <input type="text" name="name" class="form-control" placeholder="Enter Your Name" >
                     </div>
@@ -24,15 +32,13 @@
 
                     <div class="mb-3">
                         <label for="course" class="form-label fw-bold">Select Course</label>
-                        <select name="course" class="form-select" >
+                        <select id="course" name="course" class="form-select" required>
                             <option value="" selected disabled>Select a course</option>
-                            <option value="Python">Python</option>
-                            <option value="Django">Django</option>
-                            <option value="React">React</option>
-                            <option value="Java">Java</option>
-                            <option value="HTML">HTML</option>
+                            {% for course in courses %}
+                                <option value="{{ course.id }}">{{ course.name }}</option>
+                            {% endfor %}
                         </select>
-                    </div>
+                    </div> {% endcomment %}
 
                     <div class="d-grid">
                         <button type="submit" class="btn btn-secondary">Add Trainee</button>

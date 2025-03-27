@@ -27,6 +27,9 @@
                         <td>{{ course.duration }}</td>
                         <td>
                             <a href="{{course.delete_url}}" class="btn btn-danger btn-sm">Delete</a>
+                            {% comment %} <a href="{{course.update_url}}" class="btn btn-warning btn-sm">Update</a> {% endcomment %}
+                            <a href="{% url 'course_update' course.id %}" class="btn btn-sm btn-primary text-white">Edit</a>
+
                         </td>
                     </tr>
                     {% endfor %}

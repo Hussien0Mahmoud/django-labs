@@ -19,14 +19,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for train in trainees %}
+                    {% for trainee in trainees %}
                     <tr>
-                        <td><strong>{{ train.id }}</strong></td>
-                        <td>{{ train.name }}</td>
-                        <td>{{ train.course }}</td>
-                        <td>{{ train.email }}</td>
+                        <td><strong>{{ trainee.id }}</strong></td>
+                        <td>{{ trainee.name }}</td>
+                        <td>{{ trainee.course }}</td>
+                        <td>{{ trainee.email }}</td>
                         <td>
-                            <a href="{{ train.delete_url }}" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="{{ trainee.delete_url }}" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="{% url 'updateTrainee' trainee.id %}" class="btn btn-sm btn-primary text-white">Edit</a>
                     </tr>
                     {% endfor %}
                 </tbody>

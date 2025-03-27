@@ -40,6 +40,11 @@ INSTALLED_APPS = [
     #add my apps
     'trainnee.apps.TrainneeConfig',
     'course.apps.CourseConfig',
+    # # add api app in trainee
+    # 'trainnee.api.apps.TrainneeConfig',
+    # # add api app in course
+    # 'course.api.apps.CourseConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
